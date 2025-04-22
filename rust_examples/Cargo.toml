@@ -1,0 +1,79 @@
+[package]
+name = "dex-arbitrage"
+version = "0.1.0"
+edition = "2021"
+authors = ["ML Trading Examples"]
+description = "DEX Arbitrage simulation with AMM pricing models and Bybit market data"
+readme = "README.md"
+license = "MIT"
+keywords = ["defi", "arbitrage", "amm", "cryptocurrency", "trading"]
+
+[dependencies]
+# HTTP client for API requests
+reqwest = { version = "0.12", features = ["json", "blocking"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Math and arrays
+ndarray = { version = "0.16", features = ["serde"] }
+statrs = "0.17"
+
+# Random number generation
+rand = "0.8"
+
+# CSV handling
+csv = "1.3"
+
+# CLI
+clap = { version = "4.5", features = ["derive"] }
+
+# Progress bars
+indicatif = "0.17"
+
+# Parallel processing
+rayon = "1.10"
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[[bin]]
+name = "dex-arbitrage"
+path = "src/main.rs"
+
+[[example]]
+name = "fetch_bybit_data"
+path = "examples/fetch_bybit_data.rs"
+
+[[example]]
+name = "amm_simulation"
+path = "examples/amm_simulation.rs"
+
+[[example]]
+name = "arbitrage_detection"
+path = "examples/arbitrage_detection.rs"
+
+[[example]]
+name = "flashloan_simulation"
+path = "examples/flashloan_simulation.rs"
+
+[[example]]
+name = "full_pipeline"
+path = "examples/full_pipeline.rs"
